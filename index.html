@@ -6,25 +6,26 @@
     <title>Document</title>
     <script>
         function myFun(){
-            var correct_way = /^[A-Za-z]+$/;
-            var a = document.getElementById("User_Name").value;
 /*
-            Four Error Condition : User Name
+            First NAME VALIDATION IN JavaScript
             1. Empty
             2. Less than 6
             3. Greater than 15
             4. Only Alphabate allowed
 */
+            var correct_way = /^[A-Za-z]+$/;
+            var a = document.getElementById("First_Name").value;
+
             if(a==""){
-                document.getElementById("Message").innerHTML="**Please fill the username";
+                document.getElementById("Message").innerHTML="** Please fill the First Name";
                 return false;
             }
             if(a.length<6){
-                document.getElementById("Message").innerHTML="** username not be less than 6 characters";
+                document.getElementById("Message").innerHTML="** First Name length not be less than 6 characters";
                 return false;
             }
             if(a.length>15){
-                document.getElementById("Message").innerHTML="** username must be less than 15 characters";
+                document.getElementById("Message").innerHTML="** First Name length must be less than 15 characters";
                 return false;
             }
             if(a.match(correct_way))
@@ -33,16 +34,127 @@
                 document.getElementById("Message").innerHTML="** only alphabets are allowed";
                 return false;
             }
+
+
+/*
+        PASSWORD VALIDATION IN JavaScript
+        1. No EMPTY Value
+        2. MIN 6
+        3. MAX 15        
+*/
+
+            var b = document.getElementById("password").value;
+            if(b==""){
+                document.getElementById("Message_01").innerHTML="** Please fill the password";
+                return false;
+            }
+            if(b.length<6){
+                document.getElementById("Message_01").innerHTML="** password length not be less than 6 characters";
+                return false;
+            }
+            if(b.length>15){
+                document.getElementById("Message_01").innerHTML="** password length must be less than 15 characters";
+                return false;
+            }
+
+
+/*
+        EMAIL VALIDATION IN JavaScript
+        1. No EMPTY Value
+        2. First char not should be "@"
+*/
+
+            var c = document.getElementById("email").value;
+            if(c==""){
+                document.getElementById("Message_02").innerHTML="** Please fill the email";
+                return false;
+            }
+            if(c.indexOf('@')<=0){
+                document.getElementById("Message_02").innerHTML="** Invalid @ Position";
+                return false;
+            }
+
+/*
+        MOBILE NUMBER VALIDATION IN JAVASCRIPT
+        1. empty
+        2. First char not should be "0"
+        3. numbers
+        4. 10digts
+*/
+
+            var d = document.getElementById("number").value;
+            if(d==""){
+                document.getElementById("Message_02").innerHTML="** Please fill the Mobile Number";
+                return false;
+            }
+            if(d.length<10) {
+                document.getElementById ("Message_03").innerHTML="** Mobile Number must be 10 digit"
+                return false;
+            }
+            if (d.length>10) {
+                document.getElementById("Message_03") .innerTML="** Mobile Number must be 10 digit";
+                return false;
+            }
+
+/*
+            Last NAME VALIDATION IN JavaScript
+            1. Should not Empty
+*/
+            var e = document.getElementById("Last_Name").value;
+
+            if(e==""){
+                document.getElementById("Message_04").innerHTML="** Please fill the Last Name";
+                return false;
+            }
+            if(e .match(correct_way))
+                true;
+                else{
+                document.getElementById("Message_04").innerHTML="** only alphabets are allowed";
+                return false;
+            }
+
+/*
+            ADDRESS VALIDATION IN JavaScript
+            1. Should not Empty
+*/
+
+            var f = document.getElementById("address").value;
+
+            if(f==""){
+                document.getElementById("Message_05").innerHTML="** Please fill Address";
+                return false;
+            }
         }
+
+
+
     </script>
-    
+
 </head>
 <body>
+
     <form onsubmit="return myFun()">
-        UserName : <input type="text" id="User_Name" value="">
-        <span id="Message"></span>
-        <br><br>
+        First Name : <input type="text" id="First_Name" value="">
+        <span id="Message"></span> <br>
+
+        Password : <input type="password" id="password" value="">
+        <span id="Message_01" style="color: red;"></span><br>
+
+        Email : <input type="email" id="email" value="">
+        <span id="Message_02"></span> <br>
+
+        Mobile Number : <input type="number" id="number" value="">
+        <span id="Message_03"></span> <br>
+
+        Last Name : <input type="text" id="Last_Name" value="">
+        <span id="Message_04"></span> <br>
+
+        Address : <br>
+        <textarea id="address" name="address" rows="4" cols="50"></textarea>
+        <span id="Message_05"></span> <br>
+        
         <input type="submit" value="Submit">
+        
     </form>
 </body>
 </html>
