@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFun(){
+            var correct_way = /^[A-Za-z]+$/;
+            var a = document.getElementById("User_Name").value;
+/*
+            Four Error Condition : User Name
+            1. Empty
+            2. Less than 6
+            3. Greater than 15
+            4. Only Alphabate allowed
+*/
+            if(a==""){
+                document.getElementById("Message").innerHTML="**Please fill the username";
+                return false;
+            }
+            if(a.length<6){
+                document.getElementById("Message").innerHTML="** username not be less than 6 characters";
+                return false;
+            }
+            if(a.length>15){
+                document.getElementById("Message").innerHTML="** username must be less than 15 characters";
+                return false;
+            }
+            if(a.match(correct_way))
+                true;
+                else{
+                document.getElementById("Message").innerHTML="** only alphabets are allowed";
+                return false;
+            }
+        }
+    </script>
+    
+</head>
+<body>
+    <form onsubmit="return myFun()">
+        UserName : <input type="text" id="User_Name" value="">
+        <span id="Message"></span>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
